@@ -1,0 +1,71 @@
+#include <stdio.h>
+
+int add(int x, int y);
+int sub(int x, int y);
+int multi(int x, int y);
+int divi(int x, int y);
+
+int divi(int x, int y)
+{
+    return x / y;
+}
+
+int multi(int x, int y)
+{
+    return (x * y);
+}
+
+int sub(int x, int y)
+{
+    return (x - y);
+}
+
+int add(int x, int y)
+{
+    return (x + y);
+}
+int main()
+{
+    int x, y;
+    printf("Enter two positive integers: ");
+    scanf("%d %d", &x, &y);
+    while (getchar() != '\n')
+        ;
+    char p;
+    printf("Enter any operation (+, -, *, /): ");
+    scanf("%c", &p);
+
+    int result; // Variable to store the result
+    if (p == '+')
+    {
+        result = add(x, y);
+    }
+    else if (p == '-')
+    {
+        result = sub(x, y);
+    }
+    else if (p == '*')
+    {
+        result = multi(x, y);
+    }
+    else if (p == '/')
+    {
+        if (y != 0)
+        {  
+            result = divi(x, y);
+        }
+        else
+        {
+            printf("Error: Division by zero is not allowed.\n");
+            return 1;  
+        }
+    }
+    else
+    {
+        printf("Error: Invalid operation.\n");
+        return 1;  
+    }
+    printf("Result: %d\n", result);  
+    return 0;                      
+}
+ 
