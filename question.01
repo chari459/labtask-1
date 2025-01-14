@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+void printBinary(int n) {
+    if (n == 0) {
+        printf("0");
+        return;
+    }
+ 
+    int binaryDigit;
+    int isFirstDigit = 1;  
+ 
+    while (n > 0) {
+        binaryDigit = n % 2;  
+        n = n / 2;            
+         
+        if (binaryDigit == 1) {
+            isFirstDigit = 0;  
+        }
+        if (!isFirstDigit) {
+            printf("%d", binaryDigit);
+        }
+    }
+
+    if (isFirstDigit) {
+        printf("0");
+    }
+}
+
+int main() {
+    int number;
+
+    printf("Enter a positive integer: ");
+    scanf("%d", &number);
+
+    printf("Binary representation of %d is: ", number);
+    printBinary(number);
+    printf("\n");
+
+    return 0;
+}
